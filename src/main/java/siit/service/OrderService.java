@@ -56,4 +56,8 @@ public class OrderService {
         order.setPlaced(LocalDateTime.now());
         orderDao.add(order);
     }
+    
+    public void delete(int orderId) {
+        this.orderDao.delete(orderId);
+    }
 }
