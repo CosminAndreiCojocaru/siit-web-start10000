@@ -1,5 +1,7 @@
 package siit.web;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +10,9 @@ import siit.model.Customer;
 import siit.model.Order;
 import siit.service.CustomerService;
 import siit.service.OrderService;
+
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 
 @Controller
 @RequestMapping("")
@@ -64,4 +69,11 @@ public class OrderController {
         return orderService.getBy(customerId, orderId);
     }
 
+
+    @RequestMapping(method = RequestMethod.GET, path = "/customers/{customerId}/orders/{orderId}/delete")
+    public ModelAndView deleteOrder(@PathVariable int customerId, @PathVariable int orderId){
+        ModelAndView mav = new ModelAndView("redirect:/customers/" + customerId + "/orders");
+        orderService.delete(orderId);
+        return mav;
+    }
 }
