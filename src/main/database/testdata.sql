@@ -4,7 +4,7 @@ INSERT INTO CUSTOMERS (NAME, PHONE, EMAIL, BIRTHDAY)
 INSERT INTO CUSTOMERS (NAME, PHONE, EMAIL, BIRTHDAY)
 	VALUES ('Leopold Domay', '+0341346253', 'domay.leo@gmail.com', '1887-11-10');
 INSERT INTO CUSTOMERS (NAME, PHONE, EMAIL, BIRTHDAY)
-	VALUES ('Ochoa Trem', '+3208245332', 'ochoa@ymail.com', '1999-10-20');
+	VALUES ('Ochoa Trem', '+0208245332', 'ochoa@ymail.com', '1999-10-20');
 INSERT INTO CUSTOMERS (NAME, PHONE, EMAIL, BIRTHDAY)
 	VALUES ('Nelly Santa', '+04122234555', 'santa@december.com', '1908-3-30');
 INSERT INTO CUSTOMERS (NAME, PHONE, EMAIL, BIRTHDAY)
@@ -56,3 +56,8 @@ FROM (values
       	('FNR98R332', 'Cat food',           3),
       	('FNR98R332', 'Logitech Mouse',     6)
       ) AS T(ORD_NAME, PRD_NAME, QUANT);
+
+
+ALTER TABLE orders_products DROP CONSTRAINT IF EXISTS orders_products_order_id_fkey;
+ALTER TABLE public.orders_products ADD CONSTRAINT orders_products_order_id_fkey FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS status_code SMALLINT NOT NULL DEFAULT 0;
