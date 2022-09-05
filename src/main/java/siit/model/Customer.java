@@ -1,6 +1,8 @@
 package siit.model;
 
-import java.time.LocalDate;
+import siit.model.Order;
+
+import java.sql.Date;
 import java.util.List;
 
 public class Customer {
@@ -8,21 +10,21 @@ public class Customer {
     private String name;
     private String phone;
     private String email;
-    LocalDate date;
+    Date date;
     List<Order> orders;
-
 
     public Customer() {
     }
+
     public Customer(int id, String name) {
-        this(id, name, null, null, null);
+        this(id, name, (String)null, (String)null, (Date)null);
     }
 
-    public Customer(int id, String name, String phone, String email) {
-        this(id, name, phone, email, null);
-
+    public Customer(int id, String name, String phone) {
+        this(id, name, phone, (String)null, (Date)null);
     }
-    public Customer(int id, String name, String phone, String email, LocalDate date) {
+
+    public Customer(int id, String name, String phone, String email, Date date) {
         this.id = id;
         this.name = name;
         this.phone = phone;
@@ -31,7 +33,7 @@ public class Customer {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
@@ -39,7 +41,7 @@ public class Customer {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -47,7 +49,7 @@ public class Customer {
     }
 
     public String getPhone() {
-        return phone;
+        return this.phone;
     }
 
     public void setPhone(String phone) {
@@ -55,38 +57,30 @@ public class Customer {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public Date getDate() {
+        return this.date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
     public List<Order> getOrders() {
-        return orders;
+        return this.orders;
     }
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
 
-    @Override
     public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", date=" + date +
-                '}';
+        return "Customer{id=" + this.id + ", name='" + this.name + "', phone='" + this.phone + "', email='" + this.email + "', date=" + this.date + "}";
     }
-
 }
