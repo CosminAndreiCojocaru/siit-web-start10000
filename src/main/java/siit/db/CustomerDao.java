@@ -7,10 +7,7 @@ import siit.config.DatabaseConfig;
 import siit.model.Customer;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,11 +33,13 @@ public class CustomerDao {
         String name = rs.getString("name");
         String phone = rs.getString("phone");
         String email = rs.getString("email");
-        return new Customer(id, name, phone, email);
+        Date date = rs.getDate("birthday");
+        return new Customer(id, name, phone, email, date);
     }
 
     public void update(Customer customer) {
         String sql = "UPDATE CUSTOMERS SET name=?, phone=?, email=?, birthday=? WHERE id =?";
         jdbcTemplate.update(sql, customer.getName(), customer.getPhone(), customer.getEmail(), customer.getDate(), customer.getId());
     }
+
 }

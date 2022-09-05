@@ -15,8 +15,8 @@ public class DatabaseConfig {
 //    public DataSource dataSourceConfig() {
 //        JdbcDataSource dataSource = new JdbcDataSource();
 //        dataSource.setUrl("jdbc:h2:file:./db/store;AUTO_SERVER=true");
-//        dataSource.setUser("sa");
-//        dataSource.setPassword("");
+//        dataSource.setUser("cosmin");
+//        dataSource.setPassword("cosmin");
 //        return dataSource;
 //    }
 //

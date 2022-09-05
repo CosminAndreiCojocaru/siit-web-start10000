@@ -36,11 +36,8 @@ public class CustomerDaoOld {
     private Customer extractCustomer(ResultSet rs) throws SQLException {
         int id = rs.getInt("id");
         String name = rs.getString("name");
-        String phone = rs.getString("phone");
-        String email = rs.getString("email");
-        LocalDate date = rs.getDate("birthday").toLocalDate();
 
-        return new Customer(id, name, phone, email, date);
+        return new Customer(id, name);
     }
 
 }
