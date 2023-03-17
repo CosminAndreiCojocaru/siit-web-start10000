@@ -16,7 +16,6 @@ public class CustomerService {
     private OrderService orderService;
 
     public void update(Customer customer) {
-//        phone number Validation -> phone sa contina doar cifre, un anumit numar de caractere
         customerDao.update(customer);
     }
 
