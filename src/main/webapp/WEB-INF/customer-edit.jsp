@@ -27,6 +27,14 @@
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="phone" name="phone" value="${customer.phone}">
                 </div>
+				<label class="control-label col-sm-2" for="email">Email:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="email" name="email" value="${customer.email}">
+				</div>
+				<label class="control-label col-sm-2" for="date">Birthday:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="date" name="date" value="${customer.date}">
+				</div>
 			</div>
 			
 			<div class="form-group">
