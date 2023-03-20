@@ -28,7 +28,7 @@ public class LoginController {
     protected ModelAndView performLogin(HttpSession session, @RequestParam("user") String userName, @RequestParam String password) {
         ModelAndView mav = new ModelAndView();
 
-        if (userName.equals(password)) {
+        if (Objects.equals(userName, "postgres") && Objects.equals(password, "cosmin")) {
             session.setAttribute("logged_user", userName);
             mav.setViewName("redirect:/customers");
         } else {
